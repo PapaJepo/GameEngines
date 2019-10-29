@@ -18,13 +18,14 @@ public class CreateTerrain : MonoBehaviour
     {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
-
+        GetComponent<MeshCollider>().sharedMesh = mesh;
         CreateShape();
         
     }
 
     private void Update()
     {
+        GetComponent<MeshCollider>().sharedMesh = mesh;
         UpdateMesh();
     }
 
@@ -36,7 +37,7 @@ public class CreateTerrain : MonoBehaviour
         {
             for(int x =0; x <= xSize; x++)
             {
-                float y = Mathf.PerlinNoise(x * .3f, z * .3f) * 5f;
+                float y = Mathf.PerlinNoise(x * .3f, z * .3f) * 2f;
                 vertices[i] = new Vector3(x, y, z);
                 i++;
             }
