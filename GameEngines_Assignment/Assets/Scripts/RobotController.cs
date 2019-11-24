@@ -21,4 +21,13 @@ public class RobotController : MonoBehaviour
         transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotSpeed, 0);
 
     }
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Untagged"))
+        {
+            Destroy(other);
+        }
+    }
+    */
 }
