@@ -52,6 +52,7 @@ public class Wormhole : MonoBehaviour
         
     }
 
+    private Vector2[] uv;
     public void Generate()
     {
         curveRadius = Random.Range(minCurveRadius, maxCurveRadius);
@@ -59,8 +60,22 @@ public class Wormhole : MonoBehaviour
 
         mesh.Clear();
         SetVertices();
+        SetUV();
         SetTriangles();
         mesh.RecalculateNormals();
+    }
+
+    private void SetUV()
+    {
+        uv = new Vector2[vertices.Length];
+        for (int i = 0; i < vertices.Length; i += 4)
+        {
+            uv[i] = Vector2.zero;
+            uv[i + 1] = Vector2.right;
+            uv[i + 2] = Vector2.up;
+            uv[i + 3] = Vector2.one;
+        }
+        mesh.uv = uv;
     }
 
     public float ringDistance;
