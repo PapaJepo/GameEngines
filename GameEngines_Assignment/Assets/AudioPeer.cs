@@ -6,7 +6,7 @@ using UnityEngine;
 public class AudioPeer : MonoBehaviour
 {
     AudioSource _audioSource;
-    public float[] _samples = new float[128];
+    public float[] _samples = new float[16];
     // Start is called before the first frame update
     void Start()
     {
