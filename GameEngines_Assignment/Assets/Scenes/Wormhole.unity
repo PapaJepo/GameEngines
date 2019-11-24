@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaac181e010ec65479d478747b3f6ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainSong: {fileID: 1914347217}
+  MainSong: {fileID: 778352793}
   displacementAmount: 0
   explosionParticles: {fileID: 1212798776969441648}
 --- !u!135 &17901015
@@ -1021,12 +1021,6 @@ Transform:
   m_Father: {fileID: 1406071403}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1914347217 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3646433275491709377, guid: 04233d41b27a5504796d6a010cc8c9e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 3646433276798856976}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1935478542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,6 +1240,21 @@ PrefabInstance:
     - target: {fileID: 870650540717413663, guid: 3a80cab9205319a42a211be06945260c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212798776969441648, guid: 3a80cab9205319a42a211be06945260c,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212798776969441648, guid: 3a80cab9205319a42a211be06945260c,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.80423534
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212798776969441648, guid: 3a80cab9205319a42a211be06945260c,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

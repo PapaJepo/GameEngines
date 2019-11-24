@@ -25,7 +25,7 @@ public class DissplaceSphere : MonoBehaviour
     void Update()
     {
        
-        displacementAmount = m_Audio.volume *9;
+        displacementAmount = m_Audio.volume *5;
         meshRender.material.SetFloat("_Amount", displacementAmount);
 
         if(Input.GetButtonDown("Jump"))

@@ -35,6 +35,10 @@ public class SpawnCubes : MonoBehaviour
     void Update()
     {
         transform.Rotate(0, 0, 15 * Time.deltaTime);
+
+        transform.Rotate(0, Input.GetAxis("Vertical") * 3, 0);
+
+
         for (int i = 0;i < 32;i++)
         {
             if(_sampleCubes != null)
