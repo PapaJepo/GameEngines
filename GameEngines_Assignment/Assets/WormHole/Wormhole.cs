@@ -34,10 +34,14 @@ public class Wormhole : MonoBehaviour
     {
         float uStep = (2f * Mathf.PI) / curveSegmentCount;
         float vStep = (2f * Mathf.PI) / pipeSegementCount;
-        for(int v = 0; v <pipeSegementCount; v++)
+        for (int u = 0; u < curveSegmentCount; u++)
         {
-            Vector3 point = GetPointOnTorus(0f, v * vStep);
-            Gizmos.DrawWireSphere(point, 0.1f);
+            for (int v = 0; v < pipeSegementCount; v++)
+            {
+                Vector3 point = GetPointOnTorus(u * uStep, v * vStep);
+                Gizmos.color = new Color(1f, (float)v / pipeSegementCount, (float)u / curveSegmentCount);
+                Gizmos.DrawSphere(point, 0.1f);
+            }
         }
     }
 }
