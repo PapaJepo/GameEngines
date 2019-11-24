@@ -14,7 +14,10 @@ public class Item : MonoBehaviour
 
     public void Position(Wormhole hole, float curveRotation, float ringRotation)
     {
-        //transform.SetParent(hole.prefab)
+        transform.SetParent(hole.transform, false);
+        transform.localRotation = Quaternion.Euler(0f, 0f, -curveRotation);
+        rotater.localPosition = new Vector3(0f, hole.CurveRadius);
+        rotater.localRotation = Quaternion.Euler(ringRotation, 0f, 0f);
     }
     // Start is called before the first frame update
     void Start()
