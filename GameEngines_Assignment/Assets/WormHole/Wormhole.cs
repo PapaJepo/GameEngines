@@ -49,10 +49,15 @@ public class Wormhole : MonoBehaviour
         GetComponent<MeshFilter>().mesh = mesh = new Mesh();
         mesh.name = "Pipe";
 
+        
+    }
+
+    public void Generate()
+    {
         curveRadius = Random.Range(minCurveRadius, maxCurveRadius);
         curveSegmentCount = Random.Range(minCurveSegmentCount, maxCurveSegmentCount + 1);
 
-
+        mesh.Clear();
         SetVertices();
         SetTriangles();
         mesh.RecalculateNormals();
@@ -75,9 +80,18 @@ public class Wormhole : MonoBehaviour
         mesh.vertices = vertices;
     }
 
+    private float relativeRotation;
+
+    public float RelativeRotation
+    {
+        get
+        {
+            return relativeRotation;
+        }
+    }
     public void AlignWith(Wormhole hole)
     {
-        float relativeRotation = Random.Range(0, curveSegmentCount) * 360f / pipeSegementCount;
+         relativeRotation = Random.Range(0, curveSegmentCount) * 360f / pipeSegementCount;
         transform.SetParent(hole.transform, false);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(0f, 0f, -hole.curveAngle);

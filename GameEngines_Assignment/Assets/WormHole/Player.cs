@@ -7,11 +7,15 @@ public class Player : MonoBehaviour
     public HolePrefab holePrefab;
     public float velocity;
     private Wormhole currentHole;
+    private Transform world;
+    private float worldRotation;
     // Start is called before the first frame update
     void Start()
     {
+        world = holePrefab.transform.parent;
         currentHole = holePrefab.SetupFirstPipe();
-        deltaRotation = 360f / (2f * Mathf.PI * currentHole.CurveRadius);
+        //deltaRotation = 360f / (2f * Mathf.PI * currentHole.CurveRadius);
+        SetUpCurrentHole();
     }
 
     private float distanceTravelled;
@@ -27,11 +31,27 @@ public class Player : MonoBehaviour
         if(systemRotation >= currentHole.CurveAngle)
         {
             delta = (systemRotation - currentHole.CurveAngle) / deltaRotation;
-            currentHole = holePrefab.SetupNextPipe();
-            deltaRotation = 360f / (2f * Mathf.PI * currentHole.CurveRadius);
+            currentHole = holePrefab.SetUpNextPipe();
+            // deltaRotation = 360f / (2f * Mathf.PI * currentHole.CurveRadius);
+            SetUpCurrentHole();
             systemRotation = delta * deltaRotation;
         }
 
         holePrefab.transform.localRotation = Quaternion.Euler(0f, 0f, systemRotation);
+    }
+
+    private void SetUpCurrentHole()
+    {
+        deltaRotation = 360f / (2f * Mathf.PI * currentHole.CurveRadius);
+        worldRotation += currentHole.RelativeRotation;
+        if(worldRotation < 0f)
+        {
+            worldRotation += 360f;
+        }
+        else if(worldRotation >= 360f)
+        {
+            worldRotation -= 360f;
+        }
+        world.localRotation = Quaternion.Euler(worldRotation, 0f, 0f);
     }
 }
