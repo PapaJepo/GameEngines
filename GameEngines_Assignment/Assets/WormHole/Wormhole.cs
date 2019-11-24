@@ -30,12 +30,15 @@ public class Wormhole : MonoBehaviour
         mesh.name = "Pipe";
         SetVertices();
         SetTriangles();
+        mesh.RecalculateNormals();
     }
+
+    public float ringDistance;
 
     private void SetVertices()
     {
         vertices = new Vector3[pipeSegementCount * curveSegmentCount * 4];
-        float uStep = (2f * Mathf.PI) / curveSegmentCount;
+        float uStep = ringDistance / curveRadius;
         CreateFirstQuadRing(uStep);
         int iDelta = pipeSegementCount * 4;
         for(int u = 2, i = iDelta; u<=curveSegmentCount;u++, i+= iDelta)
@@ -99,6 +102,7 @@ public class Wormhole : MonoBehaviour
         
     }
 
+    /*
    private void OnDrawGizmos()
     {
         float uStep = (2f * Mathf.PI) / curveSegmentCount;
@@ -113,4 +117,5 @@ public class Wormhole : MonoBehaviour
             }
         }
     }
+    */
 }
