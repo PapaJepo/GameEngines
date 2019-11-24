@@ -7,6 +7,7 @@ public class DissplaceSphere : MonoBehaviour
     public GameObject MainSong;
     public float displacementAmount;
     MeshRenderer meshRender;
+    public ParticleSystem explosionParticles;
     private AudioSource m_Audio;
 
    
@@ -26,6 +27,13 @@ public class DissplaceSphere : MonoBehaviour
        
         displacementAmount = m_Audio.volume *9;
         meshRender.material.SetFloat("_Amount", displacementAmount);
+
+        if(Input.GetButtonDown("Jump"))
+        {
+            Debug.Log("gogogo");
+            displacementAmount += 2f;
+            explosionParticles.Play();
+        }
     }
 
 
