@@ -100,6 +100,7 @@ public class Wormhole : MonoBehaviour
         transform.Translate(0f, -curveRadius, 0f);
 
         transform.SetParent(hole.transform.parent);
+        transform.localScale = Vector3.one;
     }
 
 
@@ -139,8 +140,8 @@ public class Wormhole : MonoBehaviour
         for(int t = 0, i = 0; t < triangles.Length; t+= 6, i+=4)
         {
             triangles[t] = i;
-            triangles[t + 1] = triangles[t + 4] = i + 1;
-            triangles[t + 2] = triangles[t + 3] = i + 2;
+            triangles[t + 1] = triangles[t + 4] = i + 2;
+            triangles[t + 2] = triangles[t + 3] = i + 1;
             triangles[t + 5] = i + 3;
         }
         mesh.triangles = triangles;

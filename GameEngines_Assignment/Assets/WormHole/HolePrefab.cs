@@ -17,7 +17,7 @@ public class HolePrefab : MonoBehaviour
         {
             Wormhole hole = holes[i] = Instantiate<Wormhole>(holePrefab);
             hole.transform.SetParent(transform, false);
-            holePrefab.Generate();
+            hole.Generate();
             if(i>0)
             {
                 hole.AlignWith(holes[i - 1]);
