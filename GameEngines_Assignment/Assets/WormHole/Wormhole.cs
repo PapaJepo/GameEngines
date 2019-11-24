@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Wormhole : MonoBehaviour
 {
-    public float curveRadius, pipeRadius;
+    public float pipeRadius;
 
-    public int curveSegmentCount, pipeSegementCount;
+    
+    public int  pipeSegementCount;
 
     private Vector3 GetPointOnTorus (float u, float v)
     {
@@ -23,22 +24,33 @@ public class Wormhole : MonoBehaviour
     private Vector3[] vertices;
     private int[] triangles;
 
+    public float minCurveRadius, maxCurveRadius;
+    public int minCurveSegmentCount, maxCurveSegmentCount;
 
+    private float curveRadius;
+    private int curveSegmentCount;
     private void Awake()
     {
         GetComponent<MeshFilter>().mesh = mesh = new Mesh();
         mesh.name = "Pipe";
+
+        curveRadius = Random.Range(minCurveRadius, maxCurveRadius);
+        curveSegmentCount = Random.Range(minCurveSegmentCount, maxCurveSegmentCount + 1);
+
+
         SetVertices();
         SetTriangles();
         mesh.RecalculateNormals();
     }
 
     public float ringDistance;
+    private float curveAngle;
 
     private void SetVertices()
     {
         vertices = new Vector3[pipeSegementCount * curveSegmentCount * 4];
         float uStep = ringDistance / curveRadius;
+        curveAngle = uStep * curveSegmentCount * (360f / (2f * Mathf.PI));
         CreateFirstQuadRing(uStep);
         int iDelta = pipeSegementCount * 4;
         for(int u = 2, i = iDelta; u<=curveSegmentCount;u++, i+= iDelta)
@@ -47,6 +59,20 @@ public class Wormhole : MonoBehaviour
         }
         mesh.vertices = vertices;
     }
+
+    public void AlignWith(Wormhole hole)
+    {
+        float relativeRotation = Random.Range(0, curveSegmentCount) * 360f / pipeSegementCount;
+        transform.SetParent(hole.transform, false);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(0f, 0f, -hole.curveAngle);
+        transform.Translate(0f, hole.curveRadius, 0f);
+        transform.Rotate(relativeRotation, 0f, 0f);
+        transform.Translate(0f, -curveRadius, 0f);
+
+        transform.SetParent(hole.transform.parent);
+    }
+
 
     private void CreateQuadRing(float u, int i)
     {

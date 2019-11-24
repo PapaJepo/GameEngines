@@ -17,8 +17,13 @@ public class HolePrefab : MonoBehaviour
         {
             Wormhole hole = holes[i] = Instantiate<Wormhole>(holePrefab);
             hole.transform.SetParent(transform, false);
+            if(i>0)
+            {
+                hole.AlignWith(holes[i - 1]);
+            }
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
