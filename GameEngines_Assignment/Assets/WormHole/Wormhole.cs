@@ -6,6 +6,21 @@ public class Wormhole : MonoBehaviour
 {
     public float pipeRadius;
 
+    public float CurveRadius
+    {
+        get
+        {
+            return curveRadius;
+        }
+    }
+
+    public float CurveAngle
+    {
+        get
+        {
+            return curveAngle;
+        }
+    }
     
     public int  pipeSegementCount;
 

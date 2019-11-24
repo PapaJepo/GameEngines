@@ -24,6 +24,12 @@ public class HolePrefab : MonoBehaviour
         }
     }
 
+    public Wormhole SetupFirstPipe()
+    {
+        transform.localPosition = new Vector3(0f, -holes[0].CurveRadius);
+        return holes[0];
+    }
+
     // Start is called before the first frame update
     void Start()
     {
