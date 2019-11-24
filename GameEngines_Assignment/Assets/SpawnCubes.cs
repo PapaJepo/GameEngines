@@ -34,7 +34,8 @@ public class SpawnCubes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for(int i = 0;i < 32;i++)
+        transform.Rotate(0, 0, 15 * Time.deltaTime);
+        for (int i = 0;i < 32;i++)
         {
             if(_sampleCubes != null)
             {
