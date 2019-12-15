@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         UpdateAvatarRotation();
     }
 
-    private void SetUpCurrentHole()
+    private void SetUpCurrentHole()//This function keeps track of the world rotation and updates new pipes 
     {
         deltaRotation = 360f / (2f * Mathf.PI * currentHole.CurveRadius);
         worldRotation += currentHole.RelativeRotation;
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         world.localRotation = Quaternion.Euler(worldRotation, 0f, 0f);
     }
 
-    private void UpdateAvatarRotation()
+    private void UpdateAvatarRotation()//This allows the player to rotate the camera using A and D on the keyboard
     {
         avatarRotation +=
         rotationVelocity * Time.deltaTime * Input.GetAxis("Horizontal");

@@ -11,7 +11,7 @@ public class SpawnCubes : MonoBehaviour
     public AudioPeer AudioRef;
 
     // Start is called before the first frame update
-    void Start()
+    void Start() //This generates the ring of cubes for the audio visualiser
     {
         for (int i = 0; i <32; i ++)
         {
@@ -32,7 +32,7 @@ public class SpawnCubes : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()//This allows for the user to rotate the audio visualiser cube ring
     {
         transform.Rotate(0, 0, 15 * Time.deltaTime);
 
