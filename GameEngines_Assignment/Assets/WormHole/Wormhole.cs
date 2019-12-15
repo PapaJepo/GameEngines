@@ -24,7 +24,7 @@ public class Wormhole : MonoBehaviour
     
     public int  pipeSegementCount;
 
-    private Vector3 GetPointOnTorus (float u, float v)
+    private Vector3 GetPointOnTorus (float u, float v)  //This is the 3D sinusoid function to find the points on the Torus
     {
         Vector3 p;
         float r = (curveRadius + pipeRadius * Mathf.Cos(v));
@@ -36,7 +36,7 @@ public class Wormhole : MonoBehaviour
     }
 
     private Mesh mesh;
-    private Vector3[] vertices;
+    private Vector3[] vertices; //The vertices and triangles used for mesh generation
     private int[] triangles;
 
     public float minCurveRadius, maxCurveRadius;
@@ -44,7 +44,8 @@ public class Wormhole : MonoBehaviour
 
     private float curveRadius;
     private int curveSegmentCount;
-    private void Awake()
+
+    private void Awake() //The mesh is generated when the object wakes up
     {
         GetComponent<MeshFilter>().mesh = mesh = new Mesh();
         mesh.name = "Pipe";
@@ -53,6 +54,7 @@ public class Wormhole : MonoBehaviour
     }
 
     private Vector2[] uv;
+
     public void Generate()
     {
         curveRadius = Random.Range(minCurveRadius, maxCurveRadius);
