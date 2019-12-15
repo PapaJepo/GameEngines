@@ -121,7 +121,7 @@ public class Wormhole : MonoBehaviour
     }
 
 
-    private void CreateQuadRing(float u, int i)
+    private void CreateQuadRing(float u, int i)//Copies the previous two vertices per quad 
     {
         float vStep = (2f * Mathf.PI) / pipeSegementCount;
         int ringOffset = pipeSegementCount * 4;
@@ -136,7 +136,7 @@ public class Wormhole : MonoBehaviour
         }
     }
 
-    private void CreateFirstQuadRing(float u)
+    private void CreateFirstQuadRing(float u)//This function assigns vertices to quads as it moves through each section of the Torus
     {
         float vStep = (2f * Mathf.PI) / pipeSegementCount;
 
@@ -151,7 +151,7 @@ public class Wormhole : MonoBehaviour
         }
     }
 
-    private void SetTriangles()
+    private void SetTriangles()//Each quad has 6 vertices and 2 triangles
     {
         triangles = new int[pipeSegementCount * curveSegmentCount * 6];
         for(int t = 0, i = 0; t < triangles.Length; t+= 6, i+=4)

@@ -12,7 +12,7 @@ public class HolePrefab : MonoBehaviour
 
     private Wormhole[] holes;
 
-    private void Awake()
+    private void Awake() //Spawns in a pipe segment when the object awakens
     {
         holes = new Wormhole[holeCount];
         for(int i = 0; i < holes.Length; i++)
@@ -53,7 +53,7 @@ public class HolePrefab : MonoBehaviour
         holes[holes.Length - 1] = temp;
     }
 
-    private void AlignNextPipeWithOrigin()
+    private void AlignNextPipeWithOrigin()//This ensures that all other generated pipes move along with the current pipe
     {
         Transform transformToAlign = holes[0].transform;
         for(int i =1; i < holes.Length; i++)
@@ -69,18 +69,5 @@ public class HolePrefab : MonoBehaviour
         {
             holes[i].transform.SetParent(transform);
         }
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
