@@ -6,3 +6,8 @@ I'm more inclined to choose this as I want to learn more about procedural animat
 I may also include some VFX as I was looking into them over the summer for projects like this.
 Another idea I have is to make a procedural segment of a world tht you can traverse with some form of hoverbike or a fluid like control system.
 My ideas may change over time bit I'm more than likely going to work on an idea related to either of the ideas Iv'e mentioned.
+
+----
+My concept for my assignment changed during my development process and going with the procedural idea I wanted to make a procedural audio visualiser. Doing some research into what kind of visual effect I wanted to do I settled on a wormhole effect. 
+
+![](Images/wormhole_600.jpg)
