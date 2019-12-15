@@ -55,7 +55,7 @@ public class Wormhole : MonoBehaviour
 
     private Vector2[] uv;
 
-    public void Generate()
+    public void Generate()//
     {
         curveRadius = Random.Range(minCurveRadius, maxCurveRadius);
         curveSegmentCount = Random.Range(minCurveSegmentCount, maxCurveSegmentCount + 1);
@@ -83,7 +83,7 @@ public class Wormhole : MonoBehaviour
     public float ringDistance;
     private float curveAngle;
 
-    private void SetVertices()
+    private void SetVertices()//This function is generating quads from 4 vertices
     {
         vertices = new Vector3[pipeSegementCount * curveSegmentCount * 4];
         float uStep = ringDistance / curveRadius;
