@@ -99,14 +99,14 @@ public class Wormhole : MonoBehaviour
 
     private float relativeRotation;
 
-    public float RelativeRotation
+    public float RelativeRotation //This gets the pipes relative rotation
     {
         get
         {
             return relativeRotation;
         }
     }
-    public void AlignWith(Wormhole hole)
+    public void AlignWith(Wormhole hole) //This ensures that the transforms don't degrade over time
     {
          relativeRotation = Random.Range(0, curveSegmentCount) * 360f / pipeSegementCount;
         transform.SetParent(hole.transform, false);
@@ -163,17 +163,7 @@ public class Wormhole : MonoBehaviour
         }
         mesh.triangles = triangles;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 
     /*
    private void OnDrawGizmos()

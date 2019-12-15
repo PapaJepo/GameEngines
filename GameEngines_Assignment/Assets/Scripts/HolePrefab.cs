@@ -33,7 +33,7 @@ public class HolePrefab : MonoBehaviour
         return holes[0];
     }
 
-    public Wormhole SetUpNextPipe() //This shifts the pipes in the array reseting their position and moving it to the origin
+    public Wormhole SetUpNextPipe() //This shifts the pipes in the array reseting their position and moving it to the origin    
     {
         ShiftPipes();
         AlignNextPipeWithOrigin();
