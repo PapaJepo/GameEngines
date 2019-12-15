@@ -11,3 +11,5 @@ My ideas may change over time bit I'm more than likely going to work on an idea 
 My concept for my assignment changed during my development process and going with the procedural idea I wanted to make a procedural audio visualiser. Doing some research into what kind of visual effect I wanted to do I settled on a wormhole effect. 
 
 ![](Images/wormhole_600.jpg)
+
+![](Images/wormhole_sketch_LeahT.jpg)
