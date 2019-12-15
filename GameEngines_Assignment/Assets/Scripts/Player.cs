@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        world = holePrefab.transform.parent;
+        world = holePrefab.transform.parent;//This is the world reference for compensate the pipes rotation to the origin
         rotater = transform.GetChild(0);
         currentHole = holePrefab.SetupFirstPipe();
         //deltaRotation = 360f / (2f * Mathf.PI * currentHole.CurveRadius);
