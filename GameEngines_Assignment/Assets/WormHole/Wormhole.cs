@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Wormhole : MonoBehaviour
 {
-    public float pipeRadius;
+    public float pipeRadius; //1 of 2 radiuses of the Torus
 
-    public float CurveRadius
+    public float CurveRadius //1 of 2 radiuses of the Torus
     {
         get
         {
