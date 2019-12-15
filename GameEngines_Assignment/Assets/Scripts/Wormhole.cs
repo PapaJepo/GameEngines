@@ -55,7 +55,7 @@ public class Wormhole : MonoBehaviour
 
     private Vector2[] uv;
 
-    public void Generate()//
+    public void Generate()//This function randomizes the curve radius and segment count so the pipe isn't just moving in a straight line
     {
         curveRadius = Random.Range(minCurveRadius, maxCurveRadius);
         curveSegmentCount = Random.Range(minCurveSegmentCount, maxCurveSegmentCount + 1);
