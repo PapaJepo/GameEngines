@@ -22,13 +22,13 @@ public class DissplaceSphere : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()//This sets the volume of the audio to affect the dispacement of the spheres vertices
     {
        
         displacementAmount = m_Audio.volume *5;
         meshRender.material.SetFloat("_Amount", displacementAmount);
 
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump"))//Spawns in particle effects when the space button is pressed
         {
             Debug.Log("gogogo");
             displacementAmount += 2f;
