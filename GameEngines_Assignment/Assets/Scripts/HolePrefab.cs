@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HolePrefab : MonoBehaviour
 {
+    //This script controls the wormholes movement around the origin
+
     public Wormhole holePrefab;
 
     public int holeCount;
@@ -25,13 +27,13 @@ public class HolePrefab : MonoBehaviour
         }
     }
 
-    public Wormhole SetupFirstPipe()
+    public Wormhole SetupFirstPipe() //This ensures that the pipe starts at the origin
     {
         transform.localPosition = new Vector3(0f, -holes[0].CurveRadius);
         return holes[0];
     }
 
-    public Wormhole SetUpNextPipe()
+    public Wormhole SetUpNextPipe() //This shifts the pipes in the array reseting their position and moving it to the origin
     {
         ShiftPipes();
         AlignNextPipeWithOrigin();
@@ -41,7 +43,7 @@ public class HolePrefab : MonoBehaviour
         return holes[0];
     }
 
-    private void ShiftPipes()
+    private void ShiftPipes() //This makes it so the first pipe becomes the last pipe
     {
         Wormhole temp = holes[0];
         for(int i = 1; i < holes.Length; i++)

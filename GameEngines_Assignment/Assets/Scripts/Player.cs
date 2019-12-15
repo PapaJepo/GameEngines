@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         distanceTravelled += delta;
         systemRotation += delta * deltaRotation;
 
-        if(systemRotation >= currentHole.CurveAngle)
+        if(systemRotation >= currentHole.CurveAngle) //Using the curve angle to detect the end of a pipe segment 
         {
             delta = (systemRotation - currentHole.CurveAngle) / deltaRotation;
             currentHole = holePrefab.SetUpNextPipe();
