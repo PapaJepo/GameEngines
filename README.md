@@ -56,7 +56,7 @@ To generate the wormhole effect I don't need to use an entire Torus so I split t
 
 ----
 
-After creating the wormhole effect I wanted to add audio reactive objects to the scene. I resarched what ways people madd 3D visualisers and I settled on usinga ring of cubes to show the spectrum data of the audio. I also used shaders to displace the vertices of a sphere by the volume of the audio.
+After creating the wormhole effect I wanted to add audio reactive objects to the scene. I resarched what ways people madd 3D visualisers and I settled on using a ring of cubes to show the spectrum data of the audio. I also used shaders to displace the vertices of a sphere by the volume of the audio.
 
 ![](Images/maxresdefault.jpg)
 
